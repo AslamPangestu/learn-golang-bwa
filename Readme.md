@@ -18,3 +18,7 @@ var "variabel_name" "data_type" = "isinya" -> With assigment
 String -> ""
 Integer -> 0
 
+#MAP
+var "var_name" map["key_type"]"data_type"
+delet("map_object","map_key") -> delete data in map
+"value_variable","is_eixst_variabel" := "map_name"["map_key"]

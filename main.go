@@ -77,4 +77,64 @@ func main() {
 	for _, letter := range title {
 		fmt.Println(string(letter))
 	}
+
+	//ARRAY
+	var languanges [5]string //Definition
+	//Set Value
+	languanges[0] = "A"
+	languanges[1] = "B"
+	languanges[2] = "C"
+	languanges[3] = "D"
+	languanges[4] = "E"
+	//Definition + Set Value
+	tests := [5]string{"A", "B", "C", "D", "E"}
+	//Definition + Set Value without define length
+	testSatu := [...]string{"AAAA", "BBB"}
+
+	length := len(languanges)
+	fmt.Println(length)
+	fmt.Println(tests)
+	fmt.Println(languanges)
+	fmt.Println(testSatu)
+
+	//PRINT ARRAY
+	for _, item := range languanges {
+		fmt.Println(item)
+	}
+
+	//SLICE
+	var gamConsoles []string                 //Define
+	gameConsoles2 := []string{"PS5", "XBOX"} //Define + Set Vakye
+	gamConsoles = append(gamConsoles, "PS4") //Set Value
+	fmt.Println(gamConsoles)
+	fmt.Println(gameConsoles2)
+
+	//MAP
+	var testMap map[string]int                                         //Definition
+	testMap = map[string]int{}                                         //Inisiaton
+	testMap2 := map[string]string{"KWKWKWK": "AHAHA", "UWUWU": "HEHE"} //Definition + Initiation
+	//Set Value
+	testMap["ruby"] = 1
+	testMap["js"] = 2
+	testMap["go"] = 3
+
+	fmt.Println(testMap)
+	fmt.Println(testMap2)
+	fmt.Println(testMap["ruby"])
+
+	for key, value := range testMap {
+		fmt.Println(key, value)
+	}
+	delete(testMap, "go")           //Delete Value
+	val, isExist := testMap["ters"] //check is map key exits
+	fmt.Println(val, isExist)
+
+	students := []map[string]string{
+		{"name": "Budi", "score": "A"},
+		{"name": "Deni", "score": "B"},
+	}
+
+	for _, item := range students {
+		fmt.Println(item["name"], item["score"])
+	}
 }
