@@ -22,3 +22,7 @@ Integer -> 0
 var "var_name" map["key_type"]"data_type"
 delet("map_object","map_key") -> delete data in map
 "value_variable","is_eixst_variabel" := "map_name"["map_key"]
+
+#Funcition
+func calculate(p, l int) (int, int) 
+func calculate(p, l int) (luas int, keliling int) 

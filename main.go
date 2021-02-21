@@ -5,7 +5,97 @@ import (
 	"learn-golang-bwa/calculation"
 )
 
+type User struct {
+	ID        int
+	FirstName string
+	LastName  string
+	Email     string
+	IsActive  bool
+}
+
+func (user User) showUser() string {
+	result := fmt.Sprintf("Name: %s %s, Email: %s", user.FirstName, user.LastName, user.Email)
+	return result
+}
+
+type Group struct {
+	Name        string
+	Admin       User
+	Users       []User
+	isAvailable bool
+}
+
+type Student struct {
+	ID   int
+	Name string
+	GPA  float32
+}
+
+func (student *Student) graduate() {
+	student.Name = student.Name + "S.T"
+}
+
+type Luas interface {
+	CalculateLuas() int
+}
+
+type Persegi struct {
+	Sisi int
+}
+
+func (persegi Persegi) CalculateLuas() int {
+	return persegi.Sisi * persegi.Sisi
+}
+
+type PersegiPanjang struct {
+	Panjang int
+	Lebar   int
+}
+
+func (persegiPanjang PersegiPanjang) CalculateLuas() int {
+	return persegiPanjang.Lebar * persegiPanjang.Panjang
+}
 func main() {
+
+	student := Student{1, "Dian", 3.75}
+	fmt.Println(student)
+	student.graduate()
+	fmt.Println(student)
+	numA := 1
+	numB := &numA
+
+	fmt.Println(numA)
+	fmt.Println(numB)
+	fmt.Println(*numB)
+
+	*numB = 2
+	fmt.Println(*numB)
+	fmt.Println(numA)
+
+	user := User{}
+	user.ID = 1
+	user.FirstName = "Budi"
+	user.LastName = "Anduk"
+	user.Email = "laall@va.ca"
+	user1 := User{
+		ID:        2,
+		FirstName: "Dini",
+	}
+	user2 := User{2, "Dini", "Dian", "alaal@da.ca", true}
+	fmt.Println(user)
+	fmt.Println(user1)
+	fmt.Println(user2)
+
+	users := []User{user1, user}
+	group := Group{
+		"Gamer", user, users, true,
+	}
+	username1 := user.showUser()
+	// username1 := showUser(user)
+
+	fmt.Println(username1)
+	fmt.Println(group)
+
 	fmt.Println("Test Print")
 	// sentence := TestFucn()
 	// fmt.Println(sentence)
@@ -137,4 +227,30 @@ func main() {
 	for _, item := range students {
 		fmt.Println(item["name"], item["score"])
 	}
+
+	sentence := printTest("OLLOLO")
+	fmt.Println(sentence)
+	addRes := add(1, 3)
+	fmt.Println(addRes)
+
+	luas, keliling := calculate(10, 5)
+	fmt.Println(luas)
+	fmt.Println(keliling)
+}
+
+func printTest(sentence string) string {
+	fmt.Println(sentence)
+	newSentence := sentence + " belajar Golang"
+	return newSentence
+}
+
+func add(a, b int) int {
+	return a + b
+}
+
+func calculate(p, l int) (int, int) {
+	luas := p * l
+	kel := 2 * (p + l)
+
+	return luas, kel
 }
